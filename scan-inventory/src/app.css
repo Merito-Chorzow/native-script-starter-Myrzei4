@@ -1,3 +1,95 @@
+/* app.css — dark theme (updated) */
+
+/* Page backgrounds */
+Page, ActionBar, GridLayout, StackLayout, ScrollView, ListView {
+  background-color: #121212;
+  color: #E6E6E6;
+}
+
+/* ActionBar */
+ActionBar {
+  background-color: #1E1E1E;
+  color: #E6E6E6;
+  border-bottom-width: 1;
+  border-bottom-color: #2A2A2A;
+}
+ActionBar Label, ActionBar Title, ActionBar ActionItem, ActionBar NavigationButton {
+  color: #E6E6E6;
+}
+
+/* Default text inputs / labels */
+Label {
+  color: #E6E6E6;
+}
+TextField, TextView {
+  color: #E6E6E6;
+  background-color: transparent;
+}
+
+/* Form field visuals (applied via class .form-field / .form-textarea) */
+.form-field {
+  color: #E6E6E6;
+  background-color: transparent;
+  border-width: 1;
+  border-color: #2A2A2A;
+  border-radius: 6;
+  padding: 8 10;
+  margin-bottom: 12;
+}
+.form-textarea {
+  color: #E6E6E6;
+  background-color: transparent;
+  border-width: 1;
+  border-color: #2A2A2A;
+  border-radius: 6;
+  padding: 8 10;
+  margin-bottom: 12;
+  min-height: 80;
+}
+
+/* Placeholder / hint color fallback (some NativeScript versions use class hint-color) */
+.text-hint {
+  color: #9AA0A6;
+}
+
+/* Buttons */
+Button {
+  background-color: #0EA5A4;
+  color: #000000;
+  border-radius: 6;
+  padding: 8 12;
+}
+.btn-secondary {
+  background-color: #7C3AED;
+  color: #FFFFFF;
+}
+.btn-outline {
+  background-color: transparent;
+  border-width: 1;
+  border-color: #2A2A2A;
+  color: #E6E6E6;
+}
+.btn-danger {
+  background-color: #EF4444;
+  color: #FFFFFF;
+}
+
+/* List item card */
+.list-item {
+  background-color: #242424;
+  border-radius: 8;
+  padding: 8;
+  margin-bottom: 8;
+  border-width: 1;
+  border-color: #2A2A2A;
+}
+
+/* Image placeholder */
+Image {
+  background-color: transparent;
+}
+
+/* Status badge */
 .status-badge {
   padding: 4 8;
   border-radius: 4;
@@ -5,12 +97,33 @@
   font-size: 12;
 }
 .status-badge.active {
-  background-color: #28a745;
+  background-color: #22C55E;
 }
 .status-badge.inactive {
-  background-color: #6c757d;
+  background-color: #6C757D;
 }
-.btn-danger {
-  background-color: #dc3545;
-  color: #fff;
+
+/* Utilities */
+.p-4 { padding: 16; }
+.mt-2 { margin-top: 8; }
+.mt-4 { margin-top: 16; }
+.ml-2 { margin-left: 8; }
+.m-2 { margin: 8; }
+
+/* Action items color */
+ActionItem, NavigationButton {
+  color: #E6E6E6;
+}
+
+/* Focus / pressed states */
+Button:active, .btn:active {
+  opacity: 0.9;
+}
+.form-field:focus, .form-textarea:focus {
+  border-color: #0EA5A4;
+  /* native shadow props may or may not be supported on all platforms */
+  shadow-color: #0ea5a433;
+  shadow-offset: 0 2;
+  shadow-radius: 4;
+  shadow-opacity: 1;
 }

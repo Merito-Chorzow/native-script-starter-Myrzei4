@@ -2,11 +2,16 @@
 
 <ScrollView>
   <StackLayout class="p-4">
-    <TextField [(ngModel)]="name" hint="Name"></TextField>
-    <TextField [(ngModel)]="code" hint="Code"></TextField>
-    <TextView [(ngModel)]="description" hint="Description"></TextView>
+    <Label text="Name" class="form-label"></Label>
+    <TextField class="form-field" [(ngModel)]="name" hint="Name" />
 
-    <Button text="Take Photo" (tap)="takePhoto()" class="btn btn-secondary mt-4"></Button>
+    <Label text="Code" class="form-label"></Label>
+    <TextField class="form-field" [(ngModel)]="code" hint="Code" />
+
+    <Label text="Description" class="form-label"></Label>
+    <TextView class="form-textarea" [(ngModel)]="description" hint="Description"></TextView>
+
+    <Button text="Take Photo" (tap)="takePhoto()" class="btn-secondary mt-4"></Button>
 
     <Image [src]="imageUrl" height="200" stretch="aspectFill" *ngIf="imageUrl"></Image>
 
