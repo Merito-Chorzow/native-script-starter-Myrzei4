@@ -8,7 +8,6 @@
     "noEmitHelpers": true,
     "noEmitOnError": true,
     "skipLibCheck": true,
-    "ignoreDeprecations": "6.0",
     "lib": ["ESNext", "dom"],
     "baseUrl": ".",
     "paths": {

@@ -1,0 +1,11 @@
+<ActionBar title="Product Details" />
+
+<StackLayout class="p-4">
+  <Image [src]="product()?.imageUrl" height="200" *ngIf="product()?.imageUrl" />
+  <Label [text]="product()?.name" class="text-xl font-bold mb-2"></Label>
+  <Label [text]="'Code: ' + product()?.code"></Label>>
+  <Label [text]="'Status: ' + product()?.status"></Label>
+  <Label [text]="product()?.description" textWrap="true" class="mt-2"></Label>
+
+  <Button text="Delete" (tap)="deleteProduct()" class="btn btn-danger mt-4"></Button>>
+</StackLayout>

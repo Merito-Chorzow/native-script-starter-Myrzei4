@@ -1,6 +1,6 @@
 {
   "name": "scan-inventory",
-  "main": "src/main.ts",
+  "main": "./src/main.ts",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
@@ -20,6 +20,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "~20.0.0",
     "@angular/compiler-cli": "~20.0.0",
+    "@nativescript/android": "8.9.2",
     "@nativescript/tailwind": "^2.1.0",
     "@nativescript/types": "~8.9.0",
     "@nativescript/webpack": "~5.0.0",

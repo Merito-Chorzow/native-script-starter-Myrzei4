@@ -1,0 +1,14 @@
+<ActionBar title="Products" />
+
+<GridLayout rows="auto, *">
+  <Button text="Add Product" [nsRouterLink]="['/add']" row="0" class="btn btn-primary m-2"></Button>>
+
+  <ListView [items]="productService.items()" row="1">
+    <ng-template let-product="item">
+      <StackLayout [nsRouterLink]="['/product', product.id]" class="p-4">
+        <Label [text]="product.name + ' (' + product.code + ')'" class="text-lg"></Label>
+        <Label [text]="product.status" class="text-sm text-gray-500"></Label>
+      </StackLayout>
+    </ng-template>
+  </ListView>
+</GridLayout>
