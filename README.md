@@ -1,7 +1,4 @@
 # NativeScript Scan Inventory
-
-Krótki szablon README do projektu — wstaw swoje informacje w miejscach oznaczonych <>.
-
 ## Opis projektu
 Aplikacja NativeScript + Angular do prostego inwentaryzowania.  
 Cel: pobrać przykładowe dane z API, umożliwić dodawanie produktów z użyciem kamery oraz ich usuwanie.
@@ -15,12 +12,6 @@ Cel: pobrać przykładowe dane z API, umożliwić dodawanie produktów z użycie
 - Operacje lokalne: dodawanie i usuwanie produktów  
 - Walidacja: pola Name i Code są wymagane  
 - Ciemny motyw i style pól formularza
-
-## Wymagania
-- Node >= <wersja>  
-- npm >= <wersja>  
-- NativeScript CLI >= <wersja>  
-- Android SDK lub iOS toolchain
 
 ## Jak uruchomić (lokalnie)
 1. Zainstaluj zależności:  
