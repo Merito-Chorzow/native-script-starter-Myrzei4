@@ -1,0 +1,15 @@
+<ActionBar title="Add Product"></ActionBar>
+
+<ScrollView>
+  <StackLayout class="p-4">
+    <TextField [(ngModel)]="name" hint="Name"></TextField>
+    <TextField [(ngModel)]="code" hint="Code"></TextField>
+    <TextView [(ngModel)]="description" hint="Description"></TextView>
+
+    <Button text="Take Photo" (tap)="takePhoto()" class="btn btn-secondary mt-4"></Button>
+
+    <Image [src]="imageUrl" height="200" stretch="aspectFill" *ngIf="imageUrl"></Image>
+
+    <Button text="Save" (tap)="save()" class="btn btn-primary mt-4"></Button>
+  </StackLayout>
+</ScrollView>

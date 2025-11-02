@@ -12,6 +12,8 @@
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 	<uses-permission android:name="android.permission.INTERNET"/>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission android:name="android.permission.CAMERA" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 	<application
 		android:name="com.tns.NativeScriptApplication"
@@ -21,6 +23,15 @@
 		android:theme="@style/AppTheme"
 		android:hardwareAccelerated="true">
 
+		<provider
+    		android:name="androidx.core.content.FileProvider"
+    		android:authorities="org.nativescript.scaninventory.provider"
+    		android:exported="false"
+    		android:grantUriPermissions="true">
+    	<meta-data
+        	android:name="android.support.FILE_PROVIDER_PATHS"
+        	android:resource="@xml/provider_paths" />
+		</provider>
 		<activity
 			android:name="com.tns.NativeScriptActivity"
 			android:label="@string/title_activity_kimera"

@@ -1,14 +1,19 @@
-<ActionBar title="Products" />
+<ActionBar title="Products"></ActionBar>
 
 <GridLayout rows="auto, *">
-  <Button text="Add Product" [nsRouterLink]="['/add']" row="0" class="btn btn-primary m-2"></Button>>
+  <Button text="Add Product" row="0" class="btn btn-primary m-2" (tap)="goToAdd()"></Button>
 
-  <ListView [items]="productService.items()" row="1">
+  <ListView [items]="products()" row="1" (itemTap)="onItemTap($event)">
     <ng-template let-product="item">
-      <StackLayout [nsRouterLink]="['/product', product.id]" class="p-4">
-        <Label [text]="product.name + ' (' + product.code + ')'" class="text-lg"></Label>
-        <Label [text]="product.status" class="text-sm text-gray-500"></Label>
-      </StackLayout>
+      <GridLayout columns="60, *" class="p-2">
+        <Image col="0" [src]="product.imageUrl" width="60" height="60" stretch="aspectFill" *ngIf="product.imageUrl"></Image>
+
+        <StackLayout col="1" class="ml-2">
+          <Label [text]="product.name" class="text-lg"></Label>
+          <Label [text]="product.code" class="text-sm text-gray-500"></Label>
+          <Label [text]="product.status === 'active' ? 'Active' : 'Inactive'" class="text-sm"></Label>
+        </StackLayout>
+      </GridLayout>
     </ng-template>
   </ListView>
 </GridLayout>

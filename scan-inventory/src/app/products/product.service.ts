@@ -1,7 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { Product } from './product';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class ProductService {
   items = signal<Product[]>([
     {
@@ -20,16 +20,20 @@ export class ProductService {
       description: 'Compact thermal printer for labels',
       imageUrl: ''
     }
-
   ]);
 
-  getProduct(id: number): Product {
+  getProduct(id: number): Product | undefined {
     return this.items().find(p => p.id === id);
   }
 
   addProduct(product: Product): void {
     const current = this.items();
-    this.items.set([...current, { ...product, id: current.length + 1 }]);
+    const newId = current.length ? Math.max(...current.map(p => p.id)) + 1 : 1;
+    this.items.set([...current, { ...product, id: newId }]);
+  }
+
+  updateProduct(updated: Product): void {
+    this.items.set(this.items().map(p => (p.id === updated.id ? { ...updated } : p)));
   }
 
   deleteProduct(id: number): void {

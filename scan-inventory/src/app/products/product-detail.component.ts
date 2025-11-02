@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, NO_ERRORS_SCHEMA, OnInit, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NativeScriptCommonModule } from '@nativescript/angular';
 import { ActivatedRoute } from '@angular/router';
-import { NativeScriptCommonModule, RouterExtensions } from '@nativescript/angular';
+import { RouterExtensions } from '@nativescript/angular';
 import { ProductService } from './product.service';
 import { Product } from './product';
 
@@ -12,19 +13,20 @@ import { Product } from './product';
   schemas: [NO_ERRORS_SCHEMA],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductDetailComponent implements OnInit {
-  route = inject(ActivatedRoute);
-  routerExtensions = inject(RouterExtensions);
+export class ProductDetailComponent {
   productService = inject(ProductService);
-  product = signal<Product>(null);
+  route = inject(ActivatedRoute);
+  router = inject(RouterExtensions);
+  product: Product | undefined;
 
-  ngOnInit(): void {
-    const id = +this.route.snapshot.params['id'];
-    this.product.set(this.productService.getProduct(id));
+  constructor() {
+    const id = Number(this.route.snapshot.params['id']);
+    this.product = this.productService.getProduct(id);
   }
 
-  deleteProduct(): void {
-    this.productService.deleteProduct(this.product()?.id);
-    this.routerExtensions.navigate(['/products']);
+  delete(): void {
+    if (!this.product) return;
+    this.productService.deleteProduct(this.product.id);
+    this.router.navigate(['/products'], { clearHistory: true });
   }
 }

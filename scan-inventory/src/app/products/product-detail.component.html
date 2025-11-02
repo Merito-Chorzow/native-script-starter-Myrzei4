@@ -1,11 +1,15 @@
-<ActionBar title="Product Details" />
+<ActionBar [title]="product?.name || 'Product'"></ActionBar>
 
-<StackLayout class="p-4">
-  <Image [src]="product()?.imageUrl" height="200" *ngIf="product()?.imageUrl" />
-  <Label [text]="product()?.name" class="text-xl font-bold mb-2"></Label>
-  <Label [text]="'Code: ' + product()?.code"></Label>>
-  <Label [text]="'Status: ' + product()?.status"></Label>
-  <Label [text]="product()?.description" textWrap="true" class="mt-2"></Label>
+<ScrollView>
+  <StackLayout class="p-4">
+    <Image [src]="product?.imageUrl" height="300" stretch="aspectFill" *ngIf="product?.imageUrl"></Image>
+    <Label [text]="'Code: ' + (product?.code || '')" class="text-md mt-2"></Label>
+    <Label [text]="'Status: ' + (product?.status === 'active' ? 'Active' : 'Inactive')" class="text-md mt-2"></Label>
+    <Label [text]="product?.description" class="text-md mt-2"></Label>
 
-  <Button text="Delete" (tap)="deleteProduct()" class="btn btn-danger mt-4"></Button>>
-</StackLayout>
+    <GridLayout columns="*, *" class="mt-4">
+      <Button text="Delete" (tap)="delete()" class="btn btn-danger" col="0"></Button>
+      <Button text="Back" (tap)="router.navigate(['/products'])" class="btn btn-outline" col="1"></Button>
+    </GridLayout>
+  </StackLayout>
+</ScrollView>
